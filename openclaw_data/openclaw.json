@@ -2,8 +2,8 @@
   "agents": {
     "defaults": {
       "model": {
-        "primary": "ollama/gpt-oss:20b",
-        "fallbacks": ["ollama/gemma3:27b"]
+        "primary": "ollama/gemma3:27b",
+        "fallbacks": ["ollama/mistral-small:24b"]
       }
     }
   },
@@ -16,8 +16,8 @@
         "api": "openai-completions",
         "models": [
           {
-            "id": "gpt-oss:20b",
-            "name": "GPT-OSS 20B",
+            "id": "gemma3:27b",
+            "name": "Gemma 3 27B",
             "reasoning": false,
             "input": ["text"],
             "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
@@ -25,12 +25,12 @@
             "maxTokens": 8192
           },
           {
-            "id": "gemma3:27b",
-            "name": "Gemma 3 27B",
+            "id": "mistral-small:24b",
+            "name": "Mistral Small 3 24B",
             "reasoning": false,
             "input": ["text"],
             "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
-            "contextWindow": 16384,
+            "contextWindow": 32768,
             "maxTokens": 8192
           }
         ]
