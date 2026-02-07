@@ -39,6 +39,19 @@ services:
       - ENABLE_SIGNUP=true
     restart: always
 
+  openclaw:
+    build: ./openclaw
+    container_name: openclaw
+    volumes:
+      - ./openclaw_data:/home/node/.openclaw
+    ports:
+      - "18789:18789"
+    environment:
+      - OPENCLAW_GATEWAY_TOKEN=your-gateway-token-change-this
+    depends_on:
+      - ollama
+    restart: always
+
 volumes:
   ollama_data:
   open-webui_data:

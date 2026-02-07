@@ -1,0 +1,40 @@
+{
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "ollama/gpt-oss:20b",
+        "fallbacks": ["ollama/gemma3:27b"]
+      }
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "ollama": {
+        "baseUrl": "http://ollama:11434/v1",
+        "apiKey": "ollama-local",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "gpt-oss:20b",
+            "name": "GPT-OSS 20B",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+            "contextWindow": 16384,
+            "maxTokens": 8192
+          },
+          {
+            "id": "gemma3:27b",
+            "name": "Gemma 3 27B",
+            "reasoning": false,
+            "input": ["text"],
+            "cost": { "input": 0, "output": 0, "cacheRead": 0, "cacheWrite": 0 },
+            "contextWindow": 16384,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  }
+}
