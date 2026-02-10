@@ -21,10 +21,14 @@ services:
       - OLLAMA_MAX_MEMORY=30g
 
   open-webui:
-    image: ghcr.io/open-webui/open-webui:main
+    build:
+      context: .
+      dockerfile: openwebui/Dockerfile
     container_name: open-webui
     volumes:
       - open-webui_data:/app/backend/data
+      - ./rag_system:/app/backend/rag_system
+      - ./chroma_db:/app/backend/chroma_db
     depends_on:
       - ollama
     ports:
@@ -39,6 +43,24 @@ services:
       - ENABLE_SIGNUP=true
     restart: always
 
+  openclaw:
+    build:
+      context: .
+      dockerfile: openclaw/Dockerfile
+    container_name: openclaw
+    restart: always
+    network_mode: "host"
+    environment:
+      - OPENCLAW_GATEWAY_TOKEN=secret-token-change-me
+    volumes:
+      - ./openclaw/openclaw.json:/root/.openclaw/openclaw.json
+      - ./openclaw/skills:/root/.openclaw/workspace/skills
+      - ./rag_system:/root/.openclaw/workspace/rag_system
+      - ./openclaw_data:/root/.openclaw
+    depends_on:
+      - ollama
+
 volumes:
   ollama_data:
   open-webui_data:
+  openclaw_data:
