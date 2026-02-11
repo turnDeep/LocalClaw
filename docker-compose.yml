@@ -16,9 +16,6 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [gpu]
-    environment:
-      - OLLAMA_GPU_MEMORY=30g
-      - OLLAMA_MAX_MEMORY=30g
 
   open-webui:
     build:
