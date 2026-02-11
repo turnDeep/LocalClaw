@@ -1,20 +1,7 @@
 {
   "agent": {
     "model": "ollama/gemma3:27b",
-    "fallbackModel": "ollama/gpt-oss:20b"
-  },
-  "llm": {
-    "providers": {
-      "ollama": {
-        "type": "openai-compatible",
-        "baseUrl": "http://ollama:11434/v1",
-        "apiKey": "ollama",
-        "models": [
-          { "id": "gemma3:27b", "contextWindow": 8192 },
-          { "id": "gpt-oss:20b", "contextWindow": 8192 }
-        ]
-      }
-    }
+    "baseUrl": "http://localhost:11434"
   },
   "skills": {
     "load": {
