@@ -5,7 +5,7 @@
   "models": {
     "providers": {
       "ollama": {
-        "baseUrl": "http://localhost:11434/v1",
+        "baseUrl": "http://ollama:11434/v1",
         "apiKey": "ollama-local",
         "api": "openai-completions"
       }
