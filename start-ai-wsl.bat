@@ -14,4 +14,5 @@ wsl -d Ubuntu -e sh -c "cd ~/ai-setup && docker compose up -d"
 
 echo AI Services started via WSL2!
 echo Access OpenWebUI at http://localhost:3000
+echo Access OpenClaw at  http://localhost:18789
 pause
