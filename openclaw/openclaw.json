@@ -1,6 +1,10 @@
 {
-  "agent": {
-    "model": "ollama/gemma3:27b"
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "ollama/gemma3:27b"
+      }
+    }
   },
   "models": {
     "providers": {
